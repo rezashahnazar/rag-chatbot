@@ -15,6 +15,7 @@ export function Form({
           آدرس ایمیل
         </label>
         <input
+          dir="ltr"
           id="email"
           name="email"
           type="email"
@@ -32,6 +33,7 @@ export function Form({
           رمز عبور
         </label>
         <input
+          dir="ltr"
           id="password"
           name="password"
           type="password"
