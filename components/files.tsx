@@ -143,7 +143,7 @@ export const Files = ({
             <div className="flex flex-col gap-4 items-center justify-center h-full">
               <div className="flex flex-row gap-2 items-center text-zinc-500 dark:text-zinc-400 text-sm">
                 <InfoIcon />
-                <div>No files found</div>
+                <div>فایلی یافت نشد</div>
               </div>
             </div>
           ) : null}
