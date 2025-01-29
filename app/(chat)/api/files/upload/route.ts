@@ -1,7 +1,7 @@
 import { auth } from "@/app/(auth)/auth";
 import { insertChunks } from "@/app/db";
 import { getPdfContentFromUrl } from "@/utils/pdf";
-import { openai } from "@ai-sdk/openai";
+import { openai } from "@/lib/provider";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { put } from "@vercel/blob";
 import { embedMany } from "ai";

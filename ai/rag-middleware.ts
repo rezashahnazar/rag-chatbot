@@ -1,10 +1,10 @@
 import { auth } from "@/app/(auth)/auth";
 import { getChunksByFilePaths } from "@/app/db";
-import { openai } from "@ai-sdk/openai";
+import { openai } from "@/lib/provider";
 import {
   cosineSimilarity,
   embed,
-  Experimental_LanguageModelV1Middleware,
+  LanguageModelV1Middleware,
   generateObject,
   generateText,
 } from "ai";
@@ -17,7 +17,7 @@ const selectionSchema = z.object({
   }),
 });
 
-export const ragMiddleware: Experimental_LanguageModelV1Middleware = {
+export const ragMiddleware: LanguageModelV1Middleware = {
   transformParams: async ({ params }) => {
     const session = await auth();
 
@@ -67,7 +67,7 @@ export const ragMiddleware: Experimental_LanguageModelV1Middleware = {
     const { text: hypotheticalAnswer } = await generateText({
       // fast model for generating hypothetical answer:
       model: openai("gpt-4o-mini", { structuredOutputs: true }),
-      system: "Answer the users question:",
+      system: "پاسخ به سوال کاربر به زبان فارسی:",
       prompt: lastUserMessageContent,
     });
 
@@ -86,7 +86,7 @@ export const ragMiddleware: Experimental_LanguageModelV1Middleware = {
       ...chunk,
       similarity: cosineSimilarity(
         hypotheticalAnswerEmbedding,
-        chunk.embedding,
+        chunk.embedding
       ),
     }));
 

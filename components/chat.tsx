@@ -12,14 +12,14 @@ import { Session } from "next-auth";
 
 const suggestedActions = [
   {
-    title: "What's the summary",
-    label: "of these documents?",
-    action: "what's the summary of these documents?",
+    title: "خلاصه‌شون چیه؟",
+    label: "همه فایل‌ها با هم",
+    action: "خلاصه‌ای از محتوای اسناد به من بده",
   },
   {
-    title: "Who is the author",
-    label: "of these documents?",
-    action: "who is the author of these documents?",
+    title: "نویسنده‌شون کیه",
+    label: "این PDFهایی که آپلود کردم",
+    action: "نویسنده این اسناد کیه؟",
   },
 ];
 
@@ -42,7 +42,7 @@ export function Chat({
     if (isMounted !== false && session && session.user) {
       localStorage.setItem(
         `${session.user.email}/selected-file-pathnames`,
-        JSON.stringify(selectedFilePathnames),
+        JSON.stringify(selectedFilePathnames)
       );
     }
   }, [selectedFilePathnames, isMounted, session]);
@@ -56,9 +56,9 @@ export function Chat({
       setSelectedFilePathnames(
         JSON.parse(
           localStorage.getItem(
-            `${session.user.email}/selected-file-pathnames`,
-          ) || "[]",
-        ),
+            `${session.user.email}/selected-file-pathnames`
+          ) || "[]"
+        )
       );
     }
   }, [session]);
@@ -129,8 +129,12 @@ export function Chat({
         >
           <input
             className="bg-zinc-100 rounded-md px-2 py-1.5 flex-1 outline-none dark:bg-zinc-700 text-zinc-800 dark:text-zinc-300"
-            placeholder="Send a message..."
+            placeholder="پیامت رو بنویس ..."
             value={input}
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck="false"
             onChange={(event) => {
               setInput(event.target.value);
             }}

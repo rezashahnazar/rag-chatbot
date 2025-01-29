@@ -15,7 +15,7 @@ export async function POST(request: Request) {
   const result = streamText({
     model: customModel,
     system:
-      "you are a friendly assistant! keep your responses concise and helpful.",
+      "تو یک دستیار هوشمند فارسی هستی. به سوالات کاربر با زبان گرم و حفظ احترام به زبان فارسی پاسخ بده.",
     messages,
     experimental_providerMetadata: {
       files: {

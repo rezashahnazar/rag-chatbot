@@ -61,9 +61,9 @@ export const History = () => {
             >
               <div className="text-sm flex flex-row items-center justify-between">
                 <div className="flex flex-row gap-2">
-                  <div className="dark:text-zinc-300">History</div>
+                  <div className="dark:text-zinc-300">تاریخچه</div>
                   <div className="dark:text-zinc-500 text-zinc-500">
-                    {history === undefined ? "loading" : history.length} chats
+                    {history === undefined ? "loading" : history.length} چت
                   </div>
                 </div>
 
@@ -82,14 +82,14 @@ export const History = () => {
                 {error && error.status === 401 ? (
                   <div className="text-zinc-500 h-dvh w-full flex flex-row justify-center items-center text-sm gap-2">
                     <InfoIcon />
-                    <div>Login to save and revisit previous chats!</div>
+                    <div>وارد شو تا تاریخچه رو ببینی!</div>
                   </div>
                 ) : null}
 
                 {!isLoading && history?.length === 0 && !error ? (
                   <div className="text-zinc-500 h-dvh w-full flex flex-row justify-center items-center text-sm gap-2">
                     <InfoIcon />
-                    <div>No chats found</div>
+                    <div>تاریخچه پیام ها پیدا نشد!</div>
                   </div>
                 ) : null}
 
@@ -117,7 +117,7 @@ export const History = () => {
                         "p-2 dark:text-zinc-400 border-b dark:border-zinc-700 text-sm dark:hover:bg-zinc-700 hover:bg-zinc-200 last-of-type:border-b-0",
                         {
                           "dark:bg-zinc-700 bg-zinc-200": id === chat.id,
-                        },
+                        }
                       )}
                     >
                       {chat.messages[0].content as string}

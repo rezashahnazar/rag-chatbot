@@ -1,39 +1,106 @@
-# Internal Knowledge Base Preview
+# Flixa - Chat with PDFs using AI
 
-This template demonstrates the usage of the [Language Model Middleware](https://sdk.vercel.ai/docs/ai-sdk-core/middleware#language-model-middleware) to perform retrieval augmented generation and enforce guardrails using the [AI SDK](https://sdk.vercel.ai/docs) and [Next.js](https://nextjs.org/).
+Flixa is a modern web application that allows users to upload PDFs and have interactive conversations about their content using AI. Built with Next.js and featuring full Persian (Farsi) language support.
 
-## Deploy your own
+## Features
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fai-sdk-preview-internal-knowledge-base&env=OPENAI_API_KEY%2CAUTH_SECRET&envDescription=API%20keys%20needed%20for%20application&envLink=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fai-sdk-preview-internal-knowledge-base%2Fblob%2Fmain%2F.env.example&stores=%5B%7B%22type%22%3A%22blob%22%7D%2C%7B%22type%22%3A%22postgres%22%7D%5D)
+- 📄 PDF Upload & Processing
+- 💬 AI-powered chat interface
+- 🔍 RAG (Retrieval Augmented Generation) for contextual responses
+- 🔐 User authentication
+- 🌙 Dark mode support
+- 🇮🇷 Full Persian (RTL) language support
+- 📱 Responsive design
 
-## How to use
+## Tech Stack
 
-Run [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+- **Framework:** Next.js 14
+- **Authentication:** NextAuth.js
+- **Database:** PostgreSQL with Drizzle ORM
+- **AI/ML:** OpenAI API
+- **Styling:** Tailwind CSS
+- **Storage:** Vercel Blob Storage
+- **Deployment:** Vercel
+- **Package Manager:** pnpm
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- pnpm
+- PostgreSQL database
+- OpenAI API key
+
+### Installation
+
+1. Clone the repository:
 
 ```bash
-npx create-next-app --example https://github.com/vercel-labs/ai-sdk-preview-internal-knowledge-base ai-sdk-preview-internal-knowledge-base-example
+git clone https://github.com/rezashahnazar/flixa.git
+cd flixa
 ```
+
+2. Install dependencies:
 
 ```bash
-yarn create next-app --example https://github.com/vercel-labs/ai-sdk-preview-internal-knowledge-base ai-sdk-preview-internal-knowledge-base-example
+pnpm install
 ```
+
+3. Create a `.env.local` file:
+
+```env
+# Database
+POSTGRES_URL=your_postgres_connection_string
+
+# OpenAI
+OPENAI_API_KEY=your_openai_api_key
+
+# Auth
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_nextauth_secret
+
+# Vercel Blob
+BLOB_READ_WRITE_TOKEN=your_blob_token
+```
+
+4. Run database migrations:
 
 ```bash
-pnpm create next-app --example https://github.com/vercel-labs/ai-sdk-preview-internal-knowledge-base ai-sdk-preview-internal-knowledge-base-example
+pnpm tsx migrate.ts
 ```
 
-To run the example locally you need to:
+5. Start the development server:
 
-1. Sign up for accounts with the AI providers you want to use (e.g., OpenAI, Anthropic).
-2. Obtain API keys for each provider.
-3. Set the required environment variables as shown in the `.env.example` file, but in a new file called `.env`.
-4. `npm install` to install the required dependencies.
-5. `npm run dev` to launch the development server.
+```bash
+pnpm dev
+```
 
+## Project Structure
 
-## Learn More
+- `/app` - Next.js app router pages and API routes
+- `/components` - Reusable React components
+- `/lib` - Utility functions and configurations
+- `/drizzle` - Database schema and migrations
+- `/public` - Static assets
+- `/styles` - Global styles and Tailwind configuration
 
-To learn more about the AI SDK or Next.js by Vercel, take a look at the following resources:
+## Contributing
 
-- [AI SDK Documentation](https://sdk.vercel.ai/docs)
-- [Next.js Documentation](https://nextjs.org/docs)
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+- **Author:** Reza Shahnazar
+- **Email:** reza.shahnazar@gmail.com
+- **GitHub:** [@rezashahnazar](https://github.com/rezashahnazar)
+
+## Acknowledgments
+
+- Built with [Next.js](https://nextjs.org/)
+- AI powered by [OpenAI](https://openai.com/)
+- Deployed on [Vercel](https://vercel.com/)
