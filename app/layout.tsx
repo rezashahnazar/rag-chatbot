@@ -2,6 +2,8 @@ import { Navbar } from "@/components/navbar";
 import { Metadata, Viewport } from "next";
 import { Toaster } from "sonner";
 import "./globals.css";
+import { IRANYekan } from "@/fonts/local-fonts";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Flixa - با PDFها گپ بزن!",
@@ -56,7 +58,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body>
+      <body className={cn(IRANYekan.className, "antialiased")}>
         <Toaster position="top-center" />
         <Navbar />
         {children}
